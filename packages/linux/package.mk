@@ -29,6 +29,11 @@ case "${LINUX}" in
     PKG_SOURCE_NAME="linux-${LINUX}-${PKG_VERSION}.tar.gz"
     PKG_PATCH_DIRS="raspberrypi rtlwifi/6.13 rtlwifi/6.14 rtlwifi/after-6.14"
     ;;
+  rk3588)
+    PKG_VERSION="6.15-rc4" # 6.15-rc4
+    PKG_URL="https://github.com/torvalds/${PKG_NAME}/archive/refs/tags/v${PKG_VERSION}.tar.gz"
+    PKG_PATCH_DIRS="rk3588"
+    ;;
   *)
     PKG_VERSION="6.12.25"
     PKG_SHA256="c8af780f6f613ca24622116e4c512a764335ab66e75c6643003c16e49a8e3b90"
