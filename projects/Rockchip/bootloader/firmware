@@ -7,8 +7,26 @@ else
   export UBOOT_TARGET=""
 fi
 
-if [ -f "$(get_install_dir rkbin)/.noinstall/ddr.bin" ]; then
-  export ROCKCHIP_TPL="$(get_install_dir rkbin)/.noinstall/ddr.bin"
+    echo "DEBUG yasai: firmware: point-1"
+
+if [ "${DEVICE}" = "RK3568" -o "${DEVICE}" = "RK3566" ]; then
+  if [ ! -f "${PKG_RKBIN}" ]; then
+    PKG_RKBIN="$(get_build_dir rkbin)"
+  fi
+  PKG_BOOT_INI="${PKG_RKBIN}/RKBOOT/${DEVICE}MINIALL.ini"
+  if [ ! -f "${PKG_BOOT_INI}" ]; then
+    echo "firmware: ${PKG_BOOT_INI} does not exist"
+    exit 1
+  fi
+  if [ -f "${PKG_BOOT_INI}" ]; then
+    PKG_FILE=$(sed -nr "/^\[LOADER_OPTION\]/ { :l /^FlashData[ ]*=/ { s/[^=]*=[ ]*//; p; q;}; n; b l;}" "${PKG_BOOT_INI}")
+    if [ -f "${PKG_RKBIN}/${PKG_FILE}" ]; then
+      export ROCKCHIP_TPL="${PKG_RKBIN}/${PKG_FILE}"
+    else
+      echo "firmware: ${PKG_RKBIN}/${PKG_FILE} does not exist"
+      exit 1
+    fi
+  fi
 fi
 
 if [ -n "${ATF_PLATFORM}" ]; then
