@@ -13,6 +13,7 @@ PKG_TOOLCHAIN="manual"
 PKG_STAMP="${UBOOT_SYSTEM}"
 
 make_target() {
+  # for ddr.bin
   PKG_BOOT_INI="RKBOOT/${DEVICE}MINIALL.ini"
   if [ ! -f "${PKG_BOOT_INI}" ]; then
     PKG_BOOT_INI="RKBOOT/${DEVICE}MINIALL.ini"
@@ -29,25 +30,11 @@ make_target() {
       fi
     fi
   fi
-
-  PKG_TRUST_INI="RKTRUST/${DEVICE}TRUST.ini"
-  if [ "${DEVICE}" = "RK3566" ]; then
-    PKG_TRUST_INI="RKTRUST/RK3568TRUST.ini"
-  fi
-  if [ ! -f "${PKG_TRUST_INI}" ]; then
-    PKG_TRUST_INI="RKTRUST/${DEVICE}TRUST.ini"
-  fi
-  if [ -f "${PKG_TRUST_INI}" ]; then
-    PKG_FILE=$(sed -nr "/^\[BL31_OPTION\]/ { :l /^PATH[ ]*=/ { s/[^=]*=[ ]*//; p; q;}; n; b l;}" "${PKG_TRUST_INI}")
-    if [ -f "${PKG_FILE}" ]; then
-      cp -av "${PKG_FILE}" bl31.elf
-    fi
-  fi
 }
 
 makeinstall_target() {
   mkdir -p "${INSTALL}/.noinstall"
-  for PKG_FILE in ddr.bin bl31.elf; do
+  for PKG_FILE in ddr.bin; do
     if [ -f "${PKG_FILE}" ]; then
       cp -av "${PKG_FILE}" "${INSTALL}/.noinstall"
     fi
