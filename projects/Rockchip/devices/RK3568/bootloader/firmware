@@ -1,0 +1,22 @@
+
+# Include and execute ${PROJECT_DIR}/${PROJECT}/bootloader/firmware
+. ${PROJECT_DIR}/${PROJECT}/bootloader/firmware
+
+# Adittional code
+if [ ! -f "${PKG_RKBIN}" ]; then
+  PKG_RKBIN="$(get_build_dir rkbin)"
+fi
+PKG_BOOT_INI="${PKG_RKBIN}/RKBOOT/${DEVICE}MINIALL.ini"
+if [ ! -f "${PKG_BOOT_INI}" ]; then
+  echo "firmware: ${PKG_BOOT_INI} does not exist"
+  exit 1
+fi
+if [ -f "${PKG_BOOT_INI}" ]; then
+  PKG_FILE=$(sed -nr "/^\[LOADER_OPTION\]/ { :l /^FlashData[ ]*=/ { s/[^=]*=[ ]*//; p; q;}; n; b l;}" "${PKG_BOOT_INI}")
+  if [ -f "${PKG_RKBIN}/${PKG_FILE}" ]; then
+    export ROCKCHIP_TPL="${PKG_RKBIN}/${PKG_FILE}"
+  else
+    echo "firmware: ${PKG_RKBIN}/${PKG_FILE} does not exist"
+    exit 1
+  fi
+fi
