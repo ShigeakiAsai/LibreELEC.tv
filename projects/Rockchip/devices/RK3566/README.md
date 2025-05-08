@@ -8,7 +8,6 @@ This is a work-in-progress SoC device for RK3566
   - u-boot does not have any ddr init code
 * uses rkbin atf blob
   - open source atf has not been tested
-* press spi switch on odroid-m1 during boot to run ddr init and u-boot from sd-card/emmc
 * ram is limited to ~4gb with `mem=3838M` (memory range `0x00200000` - `0xefffffff`)
   - there is an issue with importing decoded video frames into display stack
   - old work-in-progress patches broke display stack for older socs
