@@ -29,6 +29,12 @@ case "${LINUX}" in
     PKG_SOURCE_NAME="linux-${LINUX}-${PKG_VERSION}.tar.gz"
     PKG_PATCH_DIRS="raspberrypi rtlwifi/6.13 rtlwifi/6.14 rtlwifi/after-6.14"
     ;;
+  rockchip-rk3588)
+    PKG_VERSION="6.15-rc6" # v6.15-rc6
+    PKG_SHA256="3e5926d08f8120938aef396d14645549255fa2736f289d27a47bc3a0295a8cce"
+    PKG_URL="https://github.com/torvalds/linux/archive/refs/tags/v${PKG_VERSION}.tar.gz"
+    PKG_PATCH_DIRS="rk3588"
+    ;;
   *)
     PKG_VERSION="6.12.25"
     PKG_SHA256="c8af780f6f613ca24622116e4c512a764335ab66e75c6643003c16e49a8e3b90"
