@@ -21,6 +21,24 @@
   # Kernel target
     KERNEL_TARGET="Image"
 
+  # OpenGL(X) implementation to use (mesa / no)
+    OPENGL="no"
+
+  # OpenGL-ES implementation to use (mesa / no)
+    OPENGLES="mesa"
+
+  # Vulkan implementation to use (vulkan-loader / no)
+    VULKAN="no"
+
+  # Displayserver to use (wl / x11 / no)
+    DISPLAYSERVER="wl"
+
+  # Windowmanager to use (fluxbox / sway / weston / no)
+    WINDOWMANAGER="sway"
+
+  # KODI Player implementation to use (mesa / default)
+    KODIPLAYER_DRIVER="mesa"
+
   # Graphic drivers to use
     GRAPHIC_DRIVERS="panfrost"
 
