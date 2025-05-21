@@ -34,7 +34,7 @@ if [ -f "${PKG_FILE_TRUST_INI}" ]; then
   if [ -f "${PKG_RKBIN}/${PKG_FILE_BL31}" ]; then
     export BL31="${PKG_RKBIN}/${PKG_FILE_BL31}"
   else
-    echo "firmware: ${PKG_RKBIN}/${PKG_FILE_TRUST_INI} does not exist"
+    echo "firmware: ${PKG_RKBIN}/${PKG_FILE_BL31} does not exist"
     exit 1
   fi
 else
