@@ -53,4 +53,4 @@
     ADDON_PROJECT="ARMv8"
 
   # additional packages
-    ADDITIONAL_PACKAGES+=" dt-overlays-RK3588 pciutils"
+    ADDITIONAL_PACKAGES+=" pciutils"
