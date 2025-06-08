@@ -1,0 +1,31 @@
+From 50ad39ffa8082ce7782591ebc8105a0cf05a3517 Mon Sep 17 00:00:00 2001
+From: Shigeaki Asai <y-asai.0816@docomonet.jp>
+Date: Sun, 8 Jun 2025 16:02:41 +0900
+Subject: [PATCH 2/2] Add support PINE64 Quartz64 Model B
+
+---
+ brcmfmac43455-sdio.pine64,quartz64-b.bin | 1 +
+ brcmfmac43455-sdio.pine64,quartz64-b.txt | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 120000 brcmfmac43455-sdio.pine64,quartz64-b.bin
+ create mode 120000 brcmfmac43455-sdio.pine64,quartz64-b.txt
+
+diff --git a/brcmfmac43455-sdio.pine64,quartz64-b.bin b/brcmfmac43455-sdio.pine64,quartz64-b.bin
+new file mode 120000
+index 0000000..e44aa55
+--- /dev/null
++++ b/brcmfmac43455-sdio.pine64,quartz64-b.bin
+@@ -0,0 +1 @@
++brcmfmac43455-sdio.bin
+\ No newline at end of file
+diff --git a/brcmfmac43455-sdio.pine64,quartz64-b.txt b/brcmfmac43455-sdio.pine64,quartz64-b.txt
+new file mode 120000
+index 0000000..2aba486
+--- /dev/null
++++ b/brcmfmac43455-sdio.pine64,quartz64-b.txt
+@@ -0,0 +1 @@
++brcmfmac43455-sdio.txt
+\ No newline at end of file
+-- 
+2.43.0
+
