@@ -1,0 +1,69 @@
+diff -uNr a/arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b.dtsi
+--- a/arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b.dtsi	2025-04-25 17:48:08.000000000 +0900
++++ b/arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b.dtsi	2025-05-18 22:09:59.359909280 +0900
+@@ -165,6 +165,8 @@
+ 		     &gmac1m0_rgmii_clk
+ 		     &gmac1m0_rgmii_bus
+ 		     &gmac1m0_clkinout>;
++	tx_delay = <0x30>;
++	rx_delay = <0x10>;
+ };
+ 
+ &gpu {
+diff -uNr a/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3e.dts b/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3e.dts
+--- a/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3e.dts	2025-04-25 17:48:08.000000000 +0900
++++ b/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3e.dts	2025-05-18 22:10:32.482967188 +0900
+@@ -28,6 +28,8 @@
+ 		     &gmac1m1_rgmii_clk
+ 		     &gmac1m1_rgmii_bus
+ 		     &gmac1m1_clkinout>;
++	tx_delay = <0x30>;
++	rx_delay = <0x10>;
+ 	status = "okay";
+ };
+ 
+diff -uNr a/arch/arm64/boot/dts/rockchip/rk3566-rock-3c.dts b/arch/arm64/boot/dts/rockchip/rk3566-rock-3c.dts
+--- a/arch/arm64/boot/dts/rockchip/rk3566-rock-3c.dts	2025-04-25 17:48:08.000000000 +0900
++++ b/arch/arm64/boot/dts/rockchip/rk3566-rock-3c.dts	2025-05-18 22:12:41.365575960 +0900
+@@ -200,6 +200,8 @@
+ 		     &gmac1m1_rgmii_clk
+ 		     &gmac1m1_rgmii_bus
+ 		     &gmac1m1_clkinout>;
++	tx_delay = <0x30>;
++	rx_delay = <0x10>;
+ 	status = "okay";
+ };
+ 
+diff -uNr a/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts b/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts
+--- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts	2025-04-25 17:48:08.000000000 +0900
++++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3a.dts	2025-05-18 22:13:51.039190374 +0900
+@@ -269,6 +269,8 @@
+ 		     &gmac1m1_rgmii_clk
+ 		     &gmac1m1_clkinout
+ 		     &gmac1m1_rgmii_bus>;
++	tx_delay = <0x30>;
++	rx_delay = <0x10>;
+ 	status = "okay";
+ };
+ 
+diff -uNr a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts
+--- a/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts	2025-04-25 17:48:08.000000000 +0900
++++ b/arch/arm64/boot/dts/rockchip/rk3568-rock-3b.dts	2025-05-18 22:14:32.025274138 +0900
+@@ -194,6 +194,8 @@
+ 		     &gmac0_rgmii_clk
+ 		     &gmac0_rgmii_bus
+ 		     &gmac0_clkinout>;
++	tx_delay = <0x30>;
++	rx_delay = <0x10>;
+ 	status = "okay";
+ };
+ 
+@@ -211,6 +213,8 @@
+ 		     &gmac1m1_rgmii_clk
+ 		     &gmac1m1_rgmii_bus
+ 		     &gmac1m1_clkinout>;
++	tx_delay = <0x30>;
++	rx_delay = <0x10>;
+ 	status = "okay";
+ };
+ 

@@ -1,0 +1,43 @@
+#
+# Include and execute ${PROJECT_DIR}/${PROJECT}/bootloader/firmware
+#
+. ${PROJECT_DIR}/${PROJECT}/bootloader/firmware
+
+#
+# For "ROCKCHIP_TPL=/path/to/ddr.bin"
+#
+if [ ! -f "${PKG_RKBIN}" ]; then
+  PKG_RKBIN="$(get_build_dir rkbin)"
+fi
+PKG_FILE_BOOT_INI="${PKG_RKBIN}/RKBOOT/${DEVICE}MINIALL.ini"
+if [ -f "${PKG_FILE_BOOT_INI}" ]; then
+  PKG_FILE_DDR_BIN=$(sed -nr "/^\[LOADER_OPTION\]/ { :l /^FlashData[ ]*=/ { s/[^=]*=[ ]*//; p; q;}; n; b l;}" "${PKG_FILE_BOOT_INI}")
+  if [ -f "${PKG_RKBIN}/${PKG_FILE_DDR_BIN}" ]; then
+    export ROCKCHIP_TPL="${PKG_RKBIN}/${PKG_FILE_DDR_BIN}"
+  else
+    echo "firmware: ${PKG_RKBIN}/${PKG_FILE_DDR_BIN} does not exist"
+    exit 1
+  fi
+else
+  echo "firmware: ${PKG_FILE_BOOT_INI} does not exist"
+  exit 1
+fi
+
+#
+# For "BL31=/path/to/bl31.bin" or "bl31.elf"
+# Note.
+#   RK3566 uses RK356"8"TRUST.ini Because there is no RK356"6"TRUST.ini
+#
+PKG_FILE_TRUST_INI="${PKG_RKBIN}/RKTRUST/RK3568TRUST.ini"
+if [ -f "${PKG_FILE_TRUST_INI}" ]; then
+  PKG_FILE_BL31=$(sed -nr "/^\[BL31_OPTION\]/ { :l /^PATH[ ]*=/ { s/[^=]*=[ ]*//; p; q;}; n; b l;}" "${PKG_FILE_TRUST_INI}")
+  if [ -f "${PKG_RKBIN}/${PKG_FILE_BL31}" ]; then
+    export BL31="${PKG_RKBIN}/${PKG_FILE_BL31}"
+  else
+    echo "firmware: ${PKG_RKBIN}/${PKG_FILE_BL31} does not exist"
+    exit 1
+  fi
+else
+  echo "firmware: ${PKG_FILE_TRUST_INI} does not exist"
+  exit 1
+fi
