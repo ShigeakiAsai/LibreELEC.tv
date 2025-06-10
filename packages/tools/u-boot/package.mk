@@ -9,6 +9,13 @@ PKG_ARCH="arm aarch64"
 PKG_LICENSE="GPL"
 PKG_SITE="https://www.denx.de/wiki/U-Boot"
 PKG_URL="https://ftp.denx.de/pub/u-boot/${PKG_NAME}-${PKG_VERSION}.tar.bz2"
+
+if [ "${PROJECT}" = "Rockchip" -a "${DEVICE}" = "RK3588" ]; then
+  PKG_VERSION="v2025.07-rc2"
+  PKG_SHA256="3f014aaa1c9802fe536c4f9303aa32be38ea65755be0bf57fdc9f4880077cb72"
+  PKG_URL="https://source.denx.de/${PKG_NAME}/${PKG_NAME}/-/archive/${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.bz2"
+fi
+
 PKG_DEPENDS_TARGET="toolchain openssl:host pkg-config:host Python3:host swig:host pyelftools:host"
 PKG_LONGDESC="Das U-Boot is a cross-platform bootloader for embedded systems."
 

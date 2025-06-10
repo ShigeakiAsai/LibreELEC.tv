@@ -1,0 +1,56 @@
+################################################################################
+# setup device defaults
+################################################################################
+
+  # The TARGET_CPU variable controls which processor should be targeted for
+  # generated code.
+    case $TARGET_ARCH in
+      aarch64)
+        TARGET_CPU="cortex-a76.cortex-a55"
+        TARGET_CPU_FLAGS="+crc+crypto"
+        ;;
+      arm)
+        TARGET_KERNEL_ARCH="arm64"
+        TARGET_FLOAT="hard"
+        TARGET_CPU="cortex-a76.cortex-a55"
+        TARGET_CPU_FLAGS="+crc"
+        TARGET_FPU="crypto-neon-fp-armv8"
+        ;;
+    esac
+
+  # Kernel target
+    KERNEL_TARGET="Image"
+
+  # Kernel to use. values can be:
+  # default:  default mainline kernel
+    LINUX="rockchip-rk3588"
+
+  # OpenGL(X) implementation to use (mesa / no)
+    OPENGL="no"
+
+  # OpenGL-ES implementation to use (mesa / no)
+    OPENGLES="mesa"
+
+  # Vulkan implementation to use (vulkan-loader / no)
+    VULKAN="no"
+
+  # Displayserver to use (wl / x11 / no)
+    DISPLAYSERVER="wl"
+
+  # Windowmanager to use (fluxbox / sway / weston / no)
+    WINDOWMANAGER="sway"
+
+  # KODI Player implementation to use (mesa / default)
+    KODIPLAYER_DRIVER="mesa"
+
+  # Graphic drivers to use
+    GRAPHIC_DRIVERS="panfrost"
+
+  # kernel serial console
+    EXTRA_CMDLINE="earlycon console=uart8250,mmio32,0xfeb50000 systemd.debug_shell=ttyS2 console=ttyS2,1500000n8 console=tty0 coherent_pool=2M cec.debounce_ms=5000 mem=3838M"
+
+  # set the addon project
+    ADDON_PROJECT="ARMv8"
+
+  # additional packages
+    ADDITIONAL_PACKAGES+=" pciutils"
