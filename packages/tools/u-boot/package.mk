@@ -11,8 +11,8 @@ PKG_SITE="https://www.denx.de/wiki/U-Boot"
 PKG_URL="https://ftp.denx.de/pub/u-boot/${PKG_NAME}-${PKG_VERSION}.tar.bz2"
 
 if [ "${PROJECT}" = "Rockchip" -a "${DEVICE}" = "RK3588" ]; then
-  PKG_VERSION="v2025.07-rc2"
-  PKG_SHA256="3f014aaa1c9802fe536c4f9303aa32be38ea65755be0bf57fdc9f4880077cb72"
+  PKG_VERSION="v2025.07-rc4"
+  PKG_SHA256="fcbd22e1298088f1e8ba005d889491dde8821ff33df1047aa75a6bc975f29572"
   PKG_URL="https://source.denx.de/${PKG_NAME}/${PKG_NAME}/-/archive/${PKG_VERSION}/${PKG_NAME}-${PKG_VERSION}.tar.bz2"
 fi
 
