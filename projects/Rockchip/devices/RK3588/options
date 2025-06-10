@@ -21,10 +21,6 @@
   # Kernel target
     KERNEL_TARGET="Image"
 
-  # Kernel to use. values can be:
-  # default:  default mainline kernel
-    LINUX="rockchip-rk3588"
-
   # OpenGL(X) implementation to use (mesa / no)
     OPENGL="no"
 
