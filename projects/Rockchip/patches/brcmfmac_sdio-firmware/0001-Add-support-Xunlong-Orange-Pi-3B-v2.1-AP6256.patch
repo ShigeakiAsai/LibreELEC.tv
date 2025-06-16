@@ -1,8 +1,15 @@
-From 704605a3514bd0169d4478086565915d0bac0989 Mon Sep 17 00:00:00 2001
+From 0c37938598d6730362fd8448dd1a61ec94b90e8d Mon Sep 17 00:00:00 2001
 From: Shigeaki Asai <y-asai.0816@docomonet.jp>
-Date: Sun, 8 Jun 2025 16:14:16 +0900
-Subject: [PATCH 1/2] Add support Xunlong Orange Pi 3B v2.1
+Date: Tue, 10 Jun 2025 22:38:51 +0900
+Subject: [PATCH 1/2] Add support Xunlong Orange Pi 3B v2.1 - AP6256  
+ brcmfmac43456-sdio.xunlong,orangepi-3b-v2.1.bin - Symbolic link to
+ ./brcmfmac43456-sdio.bin   brcmfmac43456-sdio.xunlong,orangepi-3b-v2.1.txt -
+ Symbolic link to ./brcmfmac43456-sdio.txt   brcmfmac43456-sdio.clm_blob -
+ this from
+ https://github.com/armbian/firmware/blob/master/brcm/brcmfmac43456-sdio.clm_blob
 
+note.
+orangepi 3b v1.1 wifi is 20U5622 so this is not necessary.
 ---
  brcmfmac43456-sdio.clm_blob                     | Bin 0 -> 7163 bytes
  brcmfmac43456-sdio.xunlong,orangepi-3b-v2.1.bin |   1 +

@@ -1,0 +1,37 @@
+From 2b37a7ea9736603e3b429783c98104a9ed708697 Mon Sep 17 00:00:00 2001
+From: Shigeaki Asai <y-asai.0816@docomonet.jp>
+Date: Wed, 11 Jun 2025 11:20:31 +0900
+Subject: [PATCH 2/2] Add support PINE64 Quartz64 Model A/B - AW-CM256SM  
+ brcmfmac43455-sdio.pine64,quartz64-a.bin - Symbolic link to
+ ./brcmfmac43455-sdio.bin   brcmfmac43455-sdio.pine64,quartz64-b.bin -
+ Symbolic link to ./brcmfmac43455-sdio.bin
+
+note.
+  brcmfmac43455-sdio.pine64,quartz64-a.txt is prepared by kernel-firmware package.
+  brcmfmac43455-sdio.pine64,quartz64-b.txt is prepared by kernel-firmware package.
+---
+ brcmfmac43455-sdio.pine64,quartz64-a.bin | 1 +
+ brcmfmac43455-sdio.pine64,quartz64-b.bin | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 120000 brcmfmac43455-sdio.pine64,quartz64-a.bin
+ create mode 120000 brcmfmac43455-sdio.pine64,quartz64-b.bin
+
+diff --git a/brcmfmac43455-sdio.pine64,quartz64-a.bin b/brcmfmac43455-sdio.pine64,quartz64-a.bin
+new file mode 120000
+index 0000000..e44aa55
+--- /dev/null
++++ b/brcmfmac43455-sdio.pine64,quartz64-a.bin
+@@ -0,0 +1 @@
++brcmfmac43455-sdio.bin
+\ No newline at end of file
+diff --git a/brcmfmac43455-sdio.pine64,quartz64-b.bin b/brcmfmac43455-sdio.pine64,quartz64-b.bin
+new file mode 120000
+index 0000000..e44aa55
+--- /dev/null
++++ b/brcmfmac43455-sdio.pine64,quartz64-b.bin
+@@ -0,0 +1 @@
++brcmfmac43455-sdio.bin
+\ No newline at end of file
+-- 
+2.43.0
+
