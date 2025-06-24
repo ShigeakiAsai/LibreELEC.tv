@@ -50,3 +50,8 @@
 
   # additional packages
     ADDITIONAL_PACKAGES+=" pciutils"
+
+  # additional Firmware to use (dvb-firmware, misc-firmware, wlan-firmware)
+  # Space separated list is supported,
+  # e.g. FIRMWARE="dvb-firmware misc-firmware wlan-firmware"
+    FIRMWARE+=" brcmfmac_pcie-firmware"
