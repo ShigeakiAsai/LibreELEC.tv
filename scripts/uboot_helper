@@ -455,6 +455,10 @@ devices = \
         'config': 'rock-5c-rk3588s_defconfig',
         'dtb': ''
       },
+      'sige7': {
+        'config': 'sige7-rk3588_defconfig',
+        'dtb': ''
+      },
     },
   },
   'Samsung': {
