@@ -1,0 +1,22 @@
+diff -uNr a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi	2025-07-06 18:04:26.000000000 +0900
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi	2025-07-09 14:48:22.024052618 +0900
+@@ -251,10 +251,18 @@
+ 	};
+ };
+ 
++&hdmi0_sound {
++	status = "okay";
++};
++
+ &hdptxphy0 {
+ 	status = "okay";
+ };
+ 
++&i2s5_8ch {
++	status = "okay";
++};
++
+ &i2c0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&i2c0m2_xfer>;
