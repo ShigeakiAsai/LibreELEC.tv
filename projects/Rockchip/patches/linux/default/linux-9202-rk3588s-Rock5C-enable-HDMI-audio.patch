@@ -1,0 +1,22 @@
+diff -uNr a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts	2025-07-09 14:51:41.773180100 +0900
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts	2025-07-10 15:00:35.662249936 +0900
+@@ -281,10 +281,18 @@
+ 	};
+ };
+ 
++&hdmi0_sound {
++	status = "okay";
++};
++
+ &hdptxphy0 {
+ 	status = "okay";
+ };
+ 
++&i2s5_8ch {
++	status = "okay";
++};
++
+ &i2c0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&i2c0m2_xfer>;
