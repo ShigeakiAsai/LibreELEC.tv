@@ -18,3 +18,4 @@ Support for the RK3588 SoC
 * `PROJECT=Rockchip DEVICE=RK3588 ARCH=aarch64 UBOOT_SYSTEM=rock-5a make image`
 * `PROJECT=Rockchip DEVICE=RK3588 ARCH=aarch64 UBOOT_SYSTEM=rock-5b make image`
 * `PROJECT=Rockchip DEVICE=RK3588 ARCH=aarch64 UBOOT_SYSTEM=rock-5c make image`
+* `PROJECT=Rockchip DEVICE=RK3588 ARCH=aarch64 UBOOT_SYSTEM=rock-5t make image`
