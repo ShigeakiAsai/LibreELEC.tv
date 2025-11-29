@@ -502,6 +502,10 @@ devices = \
         'config': 'rock-5c-rk3588s_defconfig',
         'dtb': ''
       },
+      'rock-5t': {
+        'config': 'rock5b-rk3588_defconfig',
+        'dtb': 'rk3588-rock-5t.dtb'
+      },
     },
   },
   'Samsung': {
