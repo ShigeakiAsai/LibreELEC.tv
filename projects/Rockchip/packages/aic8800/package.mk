@@ -2,8 +2,8 @@
 # Copyright (C) 2025-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="aic8800"
-PKG_VERSION="4.0+git20250410.b99ca8b6-2"
-PKG_SHA256="6d62a6d68b72e0b7c32832b3ba25fb1000d73f9eda50ba1233f4e21527021fe4"
+PKG_VERSION="4.0+git20250410.b99ca8b6-5"
+PKG_SHA256="918cf935a24d211ef56084eb0a0027c0ae13480e88730c2170b67bebfd214966"
 PKG_ARCH="arm aarch64"
 PKG_LICENSE="GPLv3"
 PKG_SITE="https://github.com/radxa-pkg/${PKG_NAME}"
@@ -24,6 +24,8 @@ pre_make_target() {
   patch -p1 < "${PKG_BUILD}/debian/patches/fix-linux-6.14-build.patch"
   patch -p1 < "${PKG_BUILD}/debian/patches/fix-linux-6.15-build.patch"
   patch -p1 < "${PKG_BUILD}/debian/patches/fix-linux-6.16-build.patch"
+  patch -p1 < "${PKG_BUILD}/debian/patches/fix-linux-6.17-build.patch"
+  patch -p1 < "${PKG_BUILD}/debian/patches/fix-linux-6.19-build.patch"
   patch -p1 < "${PKG_BUILD}/debian/patches/fix-sdio-firmware-path.patch"
 }
 
