@@ -2,8 +2,8 @@
 # Copyright (C) 2025-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="aic8800"
-PKG_VERSION="4.0+git20250410.b99ca8b6-5"
-PKG_SHA256="918cf935a24d211ef56084eb0a0027c0ae13480e88730c2170b67bebfd214966"
+PKG_VERSION="5.0+git20260123.5f7be68d-4"
+PKG_SHA256="58c4c1ee085fac7971e9972dba99c5e3207e1ea0991c3f957bd9200f6ec8fbe7"
 PKG_ARCH="arm aarch64"
 PKG_LICENSE="GPLv3"
 PKG_SITE="https://github.com/radxa-pkg/${PKG_NAME}"
@@ -19,13 +19,13 @@ pre_make_target() {
   patch -p1 < "${PKG_BUILD}/debian/patches/fix-linux-6.5-build.patch"
   patch -p1 < "${PKG_BUILD}/debian/patches/fix-linux-6.7-build.patch"
   patch -p1 < "${PKG_BUILD}/debian/patches/fix-linux-6.9-build.patch"
-  patch -p1 < "${PKG_BUILD}/debian/patches/fix-linux-6.12-build.patch"
   patch -p1 < "${PKG_BUILD}/debian/patches/fix-linux-6.13-build.patch"
   patch -p1 < "${PKG_BUILD}/debian/patches/fix-linux-6.14-build.patch"
   patch -p1 < "${PKG_BUILD}/debian/patches/fix-linux-6.15-build.patch"
   patch -p1 < "${PKG_BUILD}/debian/patches/fix-linux-6.16-build.patch"
   patch -p1 < "${PKG_BUILD}/debian/patches/fix-linux-6.17-build.patch"
   patch -p1 < "${PKG_BUILD}/debian/patches/fix-linux-6.19-build.patch"
+  patch -p1 < "${PKG_BUILD}/debian/patches/fix-vmalloc-not-include.patch"
   patch -p1 < "${PKG_BUILD}/debian/patches/fix-sdio-firmware-path.patch"
 }
 
