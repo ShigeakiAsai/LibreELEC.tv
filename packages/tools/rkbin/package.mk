@@ -29,6 +29,11 @@ make_target() {
   fi
   if [ -f "${PKG_BOOT_INI}" ]; then
     PKG_FILE=$(sed -nr "/^\[LOADER_OPTION\]/ { :l /^FlashData[ ]*=/ { s/[^=]*=[ ]*//; p; q;}; n; b l;}" "${PKG_BOOT_INI}")
+    # Some ROCK 4C+ (RK3399-T) boards require the RAM at 666MHz
+    if [ "${UBOOT_SYSTEM}" = "rock-4c-plus-ddr666" ]; then
+      PKG_FILE="bin/rk33/rk3399_ddr_666MHz_v1.30.bin"
+      [ -f "${PKG_FILE}" ] || die "rkbin: ${PKG_FILE} does not exist"
+    fi
     if [ -f "${PKG_FILE}" ]; then
       cp -av "${PKG_FILE}" ddr.bin
 
