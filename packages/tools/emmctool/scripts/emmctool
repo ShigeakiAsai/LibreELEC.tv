@@ -9,9 +9,13 @@
 # receive no support to restore your device. You have been warned!
 
 do_backup() {
+  if [ -z "${2}" ]; then
+    echo "usage: emmctool (b)ackup <filename>"
+    exit 1
+  fi
   do_umount
   echo "info: compressing ${EMMC} to ${2}, this will take time"
-  dd if="${EMMC}" | gzip >of="${2}"
+  dd if="${EMMC}" | gzip >"${2}"
   echo "info: compressing completed"
 }
 
