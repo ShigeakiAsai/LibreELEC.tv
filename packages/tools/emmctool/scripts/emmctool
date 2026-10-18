@@ -125,11 +125,16 @@ do_storage() {
 }
 
 do_umount() {
-  for mount in $(grep "${EMMC}" /proc/mounts | awk '{print $1}'); do
+  for mount in $(grep "^${EMMC}" /proc/mounts | awk '{print $1}'); do
     echo "info: unmounting $mount"
     umount -f "$mount"
     sleep 2
   done
+  if grep -q "^${EMMC}" /proc/mounts; then
+    echo "error: ${EMMC} is still mounted, aborting!"
+    grep "^${EMMC}" /proc/mounts
+    exit 1
+  fi
 }
 
 do_writeprotect() {
