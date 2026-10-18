@@ -78,7 +78,7 @@ do_resize() {
   do_umount
   echo "info: resizing partition ${EMMC}p2 to 100%"
   parted -s -m "${EMMC}" resizepart 2 100% || parted -s -m "${EMMC}" resizepart 2 yes 100%
-  sleep 5
+  udevadm settle
   do_umount
   echo "info: checking filesystem"
   e2fsck -f -p "${EMMC}p2"
