@@ -11,7 +11,7 @@
 do_backup() {
   do_umount
   echo "info: compressing ${EMMC} to ${2}, this will take time"
-  dd if="${EMMC}" | gzip >of="${2}"
+  dd if="${EMMC}" | gzip >"${2}"
   echo "info: compressing completed"
 }
 
