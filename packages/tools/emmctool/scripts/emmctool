@@ -81,7 +81,7 @@ do_resize() {
   sleep 5
   do_umount
   echo "info: checking filesystem"
-  e2fsck -f "${EMMC}p2"
+  e2fsck -f -p "${EMMC}p2"
   sleep 1
   echo "info: resizing filesystem"
   resize2fs "${EMMC}p2"
