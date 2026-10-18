@@ -126,6 +126,11 @@ do_umount() {
     umount -f "$mount"
     sleep 2
   done
+  if grep -q "^${EMMC}" /proc/mounts; then
+    echo "error: ${EMMC} is still mounted, aborting!"
+    grep "^${EMMC}" /proc/mounts
+    exit 1
+  fi
 }
 
 do_writeprotect() {
