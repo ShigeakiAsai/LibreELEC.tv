@@ -124,7 +124,30 @@ do_storage() {
   echo ""
 }
 
+do_stop_samba() {
+  if [ -n "${SAMBA_UNITS}" ]; then
+    return
+  fi
+  for unit in smbd.service nmbd.service; do
+    if systemctl -q is-active "${unit}"; then
+      SAMBA_UNITS="${SAMBA_UNITS} ${unit}"
+    fi
+  done
+  if [ -n "${SAMBA_UNITS}" ]; then
+    echo "info: stopping samba"
+    systemctl stop ${SAMBA_UNITS}
+  fi
+}
+
+do_start_samba() {
+  if [ -n "${SAMBA_UNITS}" ]; then
+    echo "info: starting samba"
+    systemctl start ${SAMBA_UNITS}
+  fi
+}
+
 do_umount() {
+  do_stop_samba
   for mount in $(grep "^${EMMC}" /proc/mounts | awk '{print $1}'); do
     echo "info: unmounting $mount"
     umount -f "$mount"
@@ -205,6 +228,9 @@ if [ -z "${EMMC}" ]; then
   echo "error: no emmc module detected!"
   exit 1
 fi
+
+SAMBA_UNITS=""
+trap do_start_samba EXIT
 
 case $(dtname) in
   azw* | bananapi* | firefly* | friendlyarm* | hardkernel* | khadas* | libretech* | radxa* | wetek*)
