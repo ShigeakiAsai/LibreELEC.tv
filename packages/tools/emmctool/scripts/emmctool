@@ -107,7 +107,8 @@ do_storage() {
   echo "info: converting emmc for /storage use"
   parted -s "${EMMC}" mklabel gpt
   parted -s "${EMMC}" -a min unit s mkpart EMMC_STORAGE ext4 34 100%
-  sleep 1
+  udevadm settle
+  do_umount
   mkfs.ext4 "${EMMC}p1"
   sleep 1
   e2label "${EMMC}p1" EMMC_STORAGE
